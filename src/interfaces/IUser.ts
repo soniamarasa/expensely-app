@@ -10,3 +10,10 @@ export interface IUser {
   imgUrl?: string;
   income?: number;
 }
+
+export interface IAuth {
+  access_token: string;
+  refresh_token: string;
+  isAuthenticated: boolean;
+  user: IUser;
+}

@@ -1,0 +1,100 @@
+.recovery-dialog {
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 0 1rem;
+  }
+  .p-inputtext {
+    margin: 0;
+    border-radius: 2rem;
+    background-color: #00000010 !important;
+    padding: 0.6rem !important;
+    border: 1px solid #9d9d9d;
+    width: 100%;
+
+    &:hover {
+      background-color: #00000020 !important;
+    }
+  }
+}
+
+.p-dialog .p-dialog-footer {
+  padding: 0 !important;
+  background-color: transparent !important;
+  margin-top: 1.0rem;
+}
+
+.input-color {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+
+  .p-inputtext {
+    margin: 0;
+    border-radius: 2rem;
+    padding: 0.6rem !important;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.category-inputs {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.btn-icon-category {
+  width: 2rem;
+  height: 2rem;
+
+  border-radius: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+  }
+}
+
+.store-inputs,
+.tag-inputs {
+  .div-field {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.div-field {
+  gap: 0.5rem !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  
+  .input-color {
+    flex-direction: column !important;
+    font-weight: lighter;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+.select-type {
+  display: flex;
+  gap: 1rem !important;
+  align-items: center;
+  margin-left: 0.5rem !important;
+}

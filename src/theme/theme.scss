@@ -1,0 +1,391 @@
+// .light {
+//   background-color: #ecdece !important;
+//   color: #20170c;
+
+//   & .card {
+//     background-color: #f8f3ed !important;
+//   }
+// }
+
+
+// .dark {
+//   background-color: #150F08 !important;
+//   color: #f8f3ed;
+
+//   & .card {
+//     background-color: #20170C !important;
+//   }
+// }
+
+
+
+// @use '../../node_modules/primeflex/primeflex.scss' as *;
+
+
+// VARIAVEIS
+$color-dark-primary:#150F08;
+$color-dark-secondary: #20170C;
+$color-font-dark:#f8f3ed;
+$color-light-primary:  #ecdece;
+$color-light-secondary: #f8f3ed;
+$color-font-light:  #20170c;
+$color-primary: #c18f41;
+$color-secondary: #659665;
+$color-tertiary: #ee7863;
+$color-quaternary: #3f3f3f;
+
+* {
+  -webkit-box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.light,
+.dark {
+  min-height: 100vh;
+}
+
+//THEMES
+
+//LIGHT
+.light {
+  background-color: $color-light-primary !important;
+  color: $color-font-light !important;
+
+  .header {
+    background-color: $color-light-secondary;
+  }
+
+  .p-card {
+    background-color: $color-light-secondary !important;
+    color: $color-font-light !important;
+  }
+
+  .p-sidebar-left .p-sidebar {
+    background-color: $color-light-secondary !important;
+    color: $color-font-light !important;
+  }
+
+  .p-menu {
+    background-color: $color-light-secondary !important;
+  }
+
+  .p-menu .p-menuitem-link {
+    & .p-menuitem-text,
+    .p-menuitem-icon {
+      color: $color-font-light !important;
+    }
+  }
+
+  .p-inputtext {
+    color: $color-font-light !important;
+  }
+
+  .p-tieredmenu.p-tieredmenu-overlay {
+    background-color: $color-light-secondary !important;
+    color: $color-font-light !important;
+  }
+
+  .p-tieredmenu .p-menuitem .p-menuitem-link .p-menuitem-text {
+    color: $color-font-light !important;
+  }
+}
+
+//DARK
+.dark {
+  background-color: $color-dark-primary !important;
+  color: $color-font-dark !important;
+  .header {
+    background-color: $color-dark-secondary;
+  }
+
+  .p-card {
+    background-color: $color-dark-secondary !important;
+    color: $color-font-dark !important;
+  }
+
+  .p-sidebar-left .p-sidebar {
+    background-color: $color-dark-secondary !important;
+    color: $color-font-dark !important;
+  }
+
+  .p-menu {
+    background-color: $color-dark-secondary !important;
+  }
+
+  .p-menu .p-menuitem-link {
+    & .p-menuitem-text,
+    .p-menuitem-icon {
+      color: $color-font-dark;
+    }
+  }
+
+  .p-inputtext {
+    background-color: #454545cc;
+    border: none;
+    // border-radius: 2rem;
+    padding: 0.6rem !important;
+    color: $color-font-dark !important;
+    width: 100%;
+  }
+
+  .p-tieredmenu.p-tieredmenu-overlay {
+    background-color: $color-dark-secondary !important;
+    color: $color-font-dark !important;
+  }
+
+  .p-tieredmenu .p-menuitem .p-menuitem-link .p-menuitem-text {
+    color: $color-font-dark !important;
+  }
+
+  .p-dialog-header,
+  .p-dialog-content {
+    background-color: $color-dark-secondary !important;
+    color: $color-font-dark !important;
+  }
+
+  .p-datatable .p-datatable-tbody > tr {
+    background-color: $color-dark-secondary !important;
+    color: $color-font-dark !important;
+  }
+
+  .p-datatable .p-datatable-thead > tr > th {
+    background-color: $color-quaternary !important;
+    color: var(--primary-color);
+  }
+
+  .p-divider.p-divider-horizontal {
+
+  }
+  
+  .p-dropdown .p-inputtext {
+    border-radius: 0 !important;
+    background-color: transparent !important;
+  }
+
+  .p-dropdown {
+    background: #454545cc !important;
+    border-radius: 2rem !important;
+  }
+
+  .p-dropdown .p-dropdown-trigger {
+    background: transparent !important;
+    border-radius: 0 1rem 1rem 0 !important;
+  }
+
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    color: $color-font-dark;
+    background: $color-dark-secondary;
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    color: $color-font-dark ;
+    background: $color-dark-secondary ;
+  }
+}
+
+//END THEME
+.p-datatable-header {
+  border-radius: 1rem !important;
+}
+
+.p-datatable .p-paginator-bottom {
+  margin-top: 4rem;
+}
+
+.p-dropdown {
+  border: none !important;
+}
+
+.p-datatable {
+  position: relative;
+  width: 100%;
+
+  & .p-datatable-thead > tr > th {
+    &:first-child {
+      border-radius: 1rem 0 0 0;
+    }
+    &:last-child {
+      border-radius: 0 1rem 0 0;
+    }
+  }
+}
+
+.p-datatable .p-datatable-tbody tr:last-child td:last-child {
+  border-radius: 0 0 1rem 0;
+}
+
+.p-datatable .p-datatable-tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 1rem;
+}
+
+.p-datatable
+  .p-datatable-tbody
+  .p-datatable-emptymessage:last-child
+  td:first-child {
+  border-radius: 0 0 1rem 1rem;
+}
+
+.logo-menu {
+  width: 4rem;
+}
+
+.header {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.p-card {
+  border-radius: 0.5rem;
+}
+
+.p-sidebar-left .p-sidebar {
+  width: max-content !important;
+  height: 100%;
+}
+
+.p-menu {
+  padding: 0 !important;
+  border: none !important;
+}
+
+.p-menu .p-menuitem-link {
+  &:hover {
+    .p-menuitem-text,
+    .p-menuitem-icon {
+      color: $color-tertiary !important;
+    }
+  }
+}
+
+.header-container .p-calendar-w-btn {
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+.revenue-menu .p-menuitem-icon, .pos-balance  {
+  color: var(--green-400) !important;
+}
+
+.expense-menu .p-menuitem-icon, .neg-balance  {
+  color: var(--red-400) !important;
+}
+
+.transaction-menu .p-menuitem-icon {
+  color: var(--blue-500) !important;
+}
+
+.card-menu .p-menuitem-link .p-menuitem-icon {
+  color: var(--teal-500) !important;
+}
+
+.icon-menu .p-menuitem-link .p-menuitem-icon {
+  color: var(--primary-500) !important;
+}
+
+.auth-container,
+.sign-up-container,
+.new-password-container,
+.container-pages {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: calc(100vh - 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  .input-01 .p-inputtext {
+    margin: 0;
+    border-radius: 2rem;
+    background-color: #ffffff57 !important;
+    padding: 0.6rem !important;
+    border: 1px solid #fff;
+    width: 100%;
+
+    &:hover {
+      background-color: #ffffff36 !important;
+    }
+  }
+}
+
+.auth-container .p-inputtext {
+  width: 18rem;
+}
+
+.input-01 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    padding-left: 0.2rem;
+    font-weight: bold;
+  }
+
+  small {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0.3rem;
+  }
+}
+
+.sign-up-container .p-dropdown,
+.sign-up-container .p-calendar-w-btn {
+  margin: 0;
+  border-radius: 2rem;
+  background-color: #ffffff57 !important;
+  border: 1px solid #fff;
+  width: 100%;
+
+  & .p-inputtext {
+    background: transparent !important;
+  }
+
+  & .p-datepicker-trigger.p-button {
+    border-radius: 0 2rem 2rem 0;
+  }
+}
+
+.p-toast-message-content {
+  align-items: center !important;
+}
+
+.info-container {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.p-overlaypanel-content {
+  background-color: $color-dark-secondary !important;
+
+  .icons-container {
+    div {
+      background-color: #0000009c;
+      color: #fff;
+
+      &:hover {
+        background-color: #000000;
+        color: #ee7863;
+      }
+    }
+  }
+}
+
+.btn-expense .p-button {
+  background: var(--red-400) !important;
+}
+
+.btn-revenue .p-button {
+  background: var(--green-400) !important;
+}

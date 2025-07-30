@@ -1,9 +1,9 @@
 @use '../../theme/theme' as *;
 
-
 .sign-up-container {
   gap: 1rem;
   align-content: flex-start;
+  min-height: calc(100vh - 40px) !important;
 
   h2 {
     margin: 1rem 0;
@@ -30,7 +30,8 @@
     justify-content: center;
 
     img {
-      width: 10rem;
+      width: 7em;
+      cursor: pointer;
     }
   }
 

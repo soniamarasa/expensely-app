@@ -7,17 +7,17 @@ import {
 import { IUser } from '../interfaces/IUser';
 
 interface IAuth {
-  id: string;
-  name: string;
-  email: string;
-  token: string;
+  access_token: string;
+  token_type: string;
   user: IUser;
+  isAuthenticated: boolean;
 }
 
 interface AuthContextType {
   user: IUser | null;
-  login: (userData: IUser) => void;
+  login: (userData: IUser, access_token: string, token_type: string) => void;
   logout: () => void;
+  loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -28,6 +28,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [user, setUser] = useState<IUser | null>(
     getLocalStorage<IAuth>('auth')?.user || null
   );
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const authData = getLocalStorage<IAuth>('auth');
+    if (authData?.user) {
+      setUser(authData.user);
+    }
+    setLoading(false);
+  }, []);
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -36,14 +45,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     };
 
     window.addEventListener('storage', handleStorageChange);
-
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
 
-  const login = (userData: IUser) => {
-    setLocalStorage('auth', { user: userData, isAuthenticated: true });
+  const login = (userData: IUser, access_token: string, token_type: string) => {
+    const authData: IAuth = {
+      user: userData,
+      access_token,
+      token_type,
+      isAuthenticated: true,
+    };
+    setLocalStorage('auth', authData);
     setUser(userData);
   };
 
@@ -53,7 +67,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

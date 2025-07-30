@@ -69,11 +69,11 @@ export const RecoverPassword = () => {
         <h3> Budget Tracker </h3>
       </div>
 
-      <div className="grid">
+      <div>
         {' '}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="new-password col-12 sm:col-6 lg:col-3"
+          className="new-password col-12 md:col-4 lg:col-3"
         >
           {' '}
           <h2> Nova senha </h2>

@@ -13,7 +13,7 @@ const checkEndpoint = (url: any) => {
 
 api.interceptors.request.use(
   (config) => {
-    const token = getLocalStorage('auth')?.user?.token;
+    const token = getLocalStorage('auth')?.access_token;
     config.baseURL = process.env.REACT_APP_BASE_URL;
 
     if (token && !checkEndpoint(config?.url)) {

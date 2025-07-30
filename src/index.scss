@@ -20,6 +20,24 @@ body {
   padding: 0 !important;
 }
 
-.container-root {
+.p-icon-field {
+  width: 100% !important;
+}
 
+// .p-icon-field-right > .p-input-icon:last-of-type {
+//   right: 0.5rem;
+//   color: inherit !important;
+// }
+
+.p-inputtext {
+  width: 100% !important;
+}
+
+.container-root {
+  height: 100vh !important;
+  min-block-size: max-content;
+}
+
+.page-container {
+    height: calc(100vh - 142px);
 }

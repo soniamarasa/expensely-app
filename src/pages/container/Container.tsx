@@ -28,7 +28,7 @@ export const Container = () => {
         (rotes.includes(location.pathname) ||
           location.pathname.includes('/password-reset'))
           ? 'light'
-          : 'dark'
+          : 'light'
       }
     >
       <div className="container-root">

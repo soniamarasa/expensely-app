@@ -7,7 +7,6 @@
 //   }
 // }
 
-
 // .dark {
 //   background-color: #150F08 !important;
 //   color: #f8f3ed;
@@ -17,18 +16,15 @@
 //   }
 // }
 
-
-
 // @use '../../node_modules/primeflex/primeflex.scss' as *;
 
-
 // VARIAVEIS
-$color-dark-primary:#150F08;
-$color-dark-secondary: #20170C;
-$color-font-dark:#f8f3ed;
-$color-light-primary:  #ecdece;
+$color-dark-primary: #150f08;
+$color-dark-secondary: #20170c;
+$color-font-dark: #f8f3ed;
+$color-light-primary: #ecdece;
 $color-light-secondary: #f8f3ed;
-$color-font-light:  #20170c;
+$color-font-light: #5b452a;
 $color-primary: #c18f41;
 $color-secondary: #659665;
 $color-tertiary: #ee7863;
@@ -167,9 +163,8 @@ a {
   }
 
   .p-divider.p-divider-horizontal {
-
   }
-  
+
   .p-dropdown .p-inputtext {
     border-radius: 0 !important;
     background-color: transparent !important;
@@ -190,109 +185,12 @@ a {
     background: $color-dark-secondary;
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
-    color: $color-font-dark ;
-    background: $color-dark-secondary ;
+    color: $color-font-dark;
+    background: $color-dark-secondary;
   }
 }
 
 //END THEME
-.p-datatable-header {
-  border-radius: 1rem !important;
-}
-
-.p-datatable .p-paginator-bottom {
-  margin-top: 4rem;
-}
-
-.p-dropdown {
-  border: none !important;
-}
-
-.p-datatable {
-  position: relative;
-  width: 100%;
-
-  & .p-datatable-thead > tr > th {
-    &:first-child {
-      border-radius: 1rem 0 0 0;
-    }
-    &:last-child {
-      border-radius: 0 1rem 0 0;
-    }
-  }
-}
-
-.p-datatable .p-datatable-tbody tr:last-child td:last-child {
-  border-radius: 0 0 1rem 0;
-}
-
-.p-datatable .p-datatable-tbody tr:last-child td:first-child {
-  border-radius: 0 0 0 1rem;
-}
-
-.p-datatable
-  .p-datatable-tbody
-  .p-datatable-emptymessage:last-child
-  td:first-child {
-  border-radius: 0 0 1rem 1rem;
-}
-
-.logo-menu {
-  width: 4rem;
-}
-
-.header {
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.p-card {
-  border-radius: 0.5rem;
-}
-
-.p-sidebar-left .p-sidebar {
-  width: max-content !important;
-  height: 100%;
-}
-
-.p-menu {
-  padding: 0 !important;
-  border: none !important;
-}
-
-.p-menu .p-menuitem-link {
-  &:hover {
-    .p-menuitem-text,
-    .p-menuitem-icon {
-      color: $color-tertiary !important;
-    }
-  }
-}
-
-.header-container .p-calendar-w-btn {
-  border: 1px solid rgba(0, 0, 0, 0.06) !important;
-  background: rgba(0, 0, 0, 0.08) !important;
-}
-
-.revenue-menu .p-menuitem-icon, .pos-balance  {
-  color: var(--green-400) !important;
-}
-
-.expense-menu .p-menuitem-icon, .neg-balance  {
-  color: var(--red-400) !important;
-}
-
-.transaction-menu .p-menuitem-icon {
-  color: var(--blue-500) !important;
-}
-
-.card-menu .p-menuitem-link .p-menuitem-icon {
-  color: var(--teal-500) !important;
-}
-
-.icon-menu .p-menuitem-link .p-menuitem-icon {
-  color: var(--primary-500) !important;
-}
 
 .auth-container,
 .sign-up-container,
@@ -319,14 +217,15 @@ a {
   }
 }
 
-.auth-container .p-inputtext {
-  width: 18rem;
-}
+// .auth-container .p-inputtext {
+//   width: 18rem;
+// }
 
 .input-01 {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
+  margin-top: 1rem;
 
   label {
     padding-left: 0.2rem;
@@ -335,7 +234,7 @@ a {
 
   small {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding-right: 0.3rem;
   }
 }
@@ -388,4 +287,12 @@ a {
 
 .btn-revenue .p-button {
   background: var(--green-400) !important;
+}
+
+.p-menubar {
+  padding: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+  border: none !important;
+  border-radius: 0 !important;
 }

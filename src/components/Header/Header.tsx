@@ -13,7 +13,11 @@ import './Header.scss';
 export const Header = () => {
   const location = useLocation();
   const rotes = ['/auth', '/signup'];
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) return null;
+
+  console.log(user)
 
   return (
     <>
@@ -31,7 +35,7 @@ export const Header = () => {
               <div className="user-actions">
                 <div className="user-data"></div>
                 {user?.name}
-                <ActionsMenu user={user} />
+                {user && <ActionsMenu user={user} />}
               </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ const checkEndpoint = (url: any) => {
 
 api.interceptors.request.use(
   (config) => {
-    const token = getLocalStorage('auth')?.user?.token;
+    const token = getLocalStorage('auth')?.access_token;
     config.baseURL = process.env.REACT_APP_BASE_URL;
 
     if (token && !checkEndpoint(config?.url)) {
@@ -51,7 +51,7 @@ export const getExpenses = (type?: number) => {
 
 export const newExpense = (expense: IExpense) => {
   return api
-    .post(`expenses`, {...expense, userId: getLocalStorage('userId')})
+    .post(`expenses`, { ...expense, userId: getLocalStorage('userId') })
     .then((response) => {
       return response;
     })

@@ -1,0 +1,53 @@
+@use '../../theme/theme' as *;
+
+.edit-profile-container {
+    gap: 1rem;
+    min-height: calc(100vh - 142px) !important;
+    max-width: 1280px;
+    margin: 0 auto;
+
+  h2 {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .edit-profile-form,
+  .password-section {
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    height: max-content;
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .edit-profile-container {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .edit-profile-container {
+    .edit-profile-form,
+    .password-section {
+      padding: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .edit-profile-container {
+    .edit-profile-form,
+    .password-section {
+      padding: 1.25rem;
+    }
+  }
+}

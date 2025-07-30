@@ -9,7 +9,8 @@ import { TagStorage } from './contexts/TagContext';
 import { AuthProvider } from './contexts/AuthContext';   
 import { Container } from './pages/container/Container';
 
-import 'primereact/resources/themes/arya-green/theme.css';
+// import 'primereact/resources/themes/arya-green/theme.css';
+import 'primereact/resources/themes/lara-light-teal/theme.css';
 
 function App() {
   const [count, setCount] = useState(0);

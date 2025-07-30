@@ -21,6 +21,9 @@ export const homeCategories = [
   { name: 'Faxina', id: '10', icon: 'fa-solid fa-ellipsis', workSpaceId: '1'},
   { name: 'Sáude', id: '11', icon: 'fa-solid fa-ellipsis', workSpaceId: '1'},
   { name: 'Outros', id: '12', icon: 'fa-solid fa-ellipsis', workSpaceId: '1'},
+  { name: 'IPTU', id: '12', icon: 'fa-solid fa-ellipsis', workSpaceId: '1'},
+  { name: 'IPVA', id: '12', icon: 'fa-solid fa-ellipsis', workSpaceId: '1'},
+  { name: 'TAXA BOMBEIRO', id: '12', icon: 'fa-solid fa-ellipsis', workSpaceId: '1'},
 ]
 
 export const travelCategories = [

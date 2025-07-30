@@ -9,7 +9,7 @@ import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 
 import './SignUp.scss';
-import Logo from '../../assets/react.svg';
+import Logo from '../../assets/expensely-icon.png';
 import { IUser } from '../../interfaces/IUser';
 
 import { createAccount } from '../../services/user-api';
@@ -67,6 +67,7 @@ export const SignUp = () => {
         showToast('success', response.data.message);
       }, 1000);
     } else {
+      console.log(response)
       showToast('error', response);
     }
   };
@@ -89,7 +90,7 @@ export const SignUp = () => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="sign-up col-12 md:col-10  lg:col-8"
+        className="sign-up col-12 md:col-10  lg:col-10"
       >
         <h2> CADASTRO </h2>
 

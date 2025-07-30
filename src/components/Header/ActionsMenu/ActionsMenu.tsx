@@ -2,13 +2,11 @@ import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TieredMenu } from 'primereact/tieredmenu';
 import { MenuItem } from 'primereact/menuitem';
-import { Button } from 'primereact/button';
 import './ActionsMenu.scss';
 import { ThemeDialog } from '../../Dialogs/ThemeDialog';
-import { logout } from '../../../services/user-api';
 import { removeLocalStorage } from '../../../helpers/LocalStorage';
-import Gravatar from 'react-gravatar';
 import { IUser } from '../../../interfaces/IUser';
+import { UserAvatar } from '../../UserAvatar/UserAvatar';
 
 export interface Props {
   user?: IUser | null;
@@ -40,11 +38,9 @@ export const ActionsMenu = ({ user }: Props) => {
       className: 'icon-menu',
       icon: 'pi pi-fw pi-power-off',
       command: () => {
-        logout().then(() => {
-          removeLocalStorage('auth');
-          removeLocalStorage('userId');
-          navigate('/auth');
-        });
+        removeLocalStorage('auth');
+        removeLocalStorage('userId');
+        navigate('/auth');
       },
     },
   ];
@@ -53,16 +49,11 @@ export const ActionsMenu = ({ user }: Props) => {
     <>
       <TieredMenu model={items} popup ref={menu} />
 
-      <Gravatar
-        email={user?.email || 'default@email.com'}
+      <UserAvatar
+        email={user?.email}
         size={30}
-        style={{
-          borderRadius: '50%',
-          cursor: 'pointer',
-          display: 'inline-block',
-        }}
-        onClick={(e: React.MouseEvent) => menu.current?.toggle(e)}
-        alt="User Avatar"
+        onClick={(e) => menu.current?.toggle(e)}
+        title="Abrir menu do usuário"
       />
 
       <ThemeDialog visible={dialogVisible} onHide={setDialogVisible} />

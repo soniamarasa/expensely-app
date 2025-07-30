@@ -1,4 +1,4 @@
 export const genders = [
-  { name: 'Feminino', value: 'female' },
-  { name: 'Masculino', value: 'male' },
+  { name: 'Feminino', value: 'F' },
+  { name: 'Masculino', value: 'M' },
 ];

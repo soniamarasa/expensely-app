@@ -11,18 +11,17 @@ export const api = axios.create();
 
 const endpoints = ['login'];
 
-
 const checkEndpoint = (url: any) => {
   return endpoints.some((endpoint) => url.includes(endpoint));
 };
 
 api.interceptors.request.use(
   (config) => {
-    const token = getLocalStorage('auth')?.user?.token;
-   config.baseURL = import.meta.env.VITE_BASE_URL;
+    const token = getLocalStorage('auth')?.access_token;
+    config.baseURL = import.meta.env.VITE_BASE_URL;
 
     if (token && !checkEndpoint(config.url)) {
-      config.headers['Authorization'] = token;
+      config.headers['Authorization'] = `Bearer ${token}`;
     }
 
     return config;
@@ -49,50 +48,42 @@ api.interceptors.response.use(
 
 export const createAccount = (user: IUser) => {
   return api
-    .post('createAccount', user)
+    .post('user', user)
     .then((response) => {
       return response;
     })
     .catch((err) => {
-      return err.response.data.error
+      console.log(err);
+      return err.response.data.detail;
     });
 };
 
 export const login = (data: any) => {
-
   return api
     .post('login', data)
     .then((response) => response)
     .catch((err) => {
-      return err.response.data.error
-    });
-};
-
-export const logout = () => {
-  return api
-    .post('logout', { id: getLocalStorage('userId') })
-    .then(() => {})
-    .catch((err) => {
-      return err.response.data.error
+      console.log(err);
+      return err.response?.data?.error || err.detail;
     });
 };
 
 export const retrievePassword = (data: any) => {
   return api
-    .post('retrievePassword', data)
+    .post('user/password/reset', data)
     .then((response) => {
       return response;
     })
     .catch((err) => {
-      return err.response.data.error
+      return err.response.data.detail;
     });
 };
 
-export const resetPassword = (password: string, token: string) => {
+export const resetPassword = (newPassword: string, token: string) => {
   return api
-    .post(
-      'resetPassword',
-      { password },
+    .put(
+      'password/change',
+      { new_password: newPassword, access_token: token },
       {
         headers: {
           Authorization: token,
@@ -101,7 +92,19 @@ export const resetPassword = (password: string, token: string) => {
     )
     .then((response) => response)
     .catch((err) => {
-      return err.response.data.error
+      return err.response?.data?.error || err.detail;
+    });
+};
+
+export const updatePassword = (data: {
+  currentPassword: string;
+  newPassword: string;
+}) => {
+  return api
+    .put('user/password/update', data)
+    .then((response) => response)
+    .catch((err) => {
+      return err.response?.data?.error || err.detail;
     });
 };
 
@@ -110,13 +113,13 @@ export const getUser = () => {
     .get(`user/${getLocalStorage('userId')}`)
     .then((response) => response)
     .catch((err) => {
-      return err.response.data.error
+      return err.response.data.detail;
     });
 };
 
 export const updateUser = (user: IUser) => {
   return api
-    .put(`updateUser/${getLocalStorage('userId')}`, user)
+    .put(`user/${getLocalStorage('userId')}`, user)
     .then((response) => {
       let auth = getLocalStorage('auth');
       auth.user.name = response.data.name;
@@ -125,10 +128,9 @@ export const updateUser = (user: IUser) => {
         setLocalStorage('auth', auth);
       }, 100);
 
-
       return response;
     })
     .catch((err) => {
-      return err.response.data.error
+      return err.response.data.detail;
     });
 };
